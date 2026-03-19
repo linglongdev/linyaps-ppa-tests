@@ -144,8 +144,8 @@ jobs:
               apt-get install -y linglong-bin linglong-builder
               ;;
             "dnf")
-              dnf config-manager addrepo --from-repofile "$REPO_BASE/${{ matrix.repo_slug }}/linglong%3ACI%3Arelease.repo"
-              dnf install -y linglong-bin linglong-builder
+              dnf config-manager --add-repo "$REPO_BASE/${{ matrix.repo_slug }}/linglong%3ACI%3Arelease.repo"
+              dnf install -y --nogpgcheck linglong-bin linglong-builder
               ;;
             "pacman")
               pacman -S --noconfirm linyaps
