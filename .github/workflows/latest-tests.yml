@@ -59,18 +59,6 @@ jobs:
               type: "apt",
               repo_slug: "Deepin_25",
             }
-          - {
-              name: "UOS 1070",
-              image: "uniontech/uos:20",
-              type: "apt",
-              repo_slug: "uos_1070",
-            }
-          - {
-              name: "openKylin 2.0",
-              image: "openkylin/openkylin:2.0",
-              type: "apt",
-              repo_slug: "openkylin_2.0",
-            }
           # --- Fedora 系 ---
           - {
               name: "Fedora 42",
