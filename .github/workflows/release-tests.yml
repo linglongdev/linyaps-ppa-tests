@@ -135,7 +135,7 @@ jobs:
 
       - name: 2. Add Repository & Install
         run: |
-          REPO_BASE="https://ci.deepin.com/repo/obs/linglong:/CI:/release"
+          REPO_BASE="https://ppa.linyaps.org.cn/release"
 
           case "${{ matrix.type }}" in
             "apt")
