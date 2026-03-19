@@ -135,7 +135,7 @@ jobs:
 
       - name: 2. Add Repository & Install
         run: |
-          REPO_BASE="https://ci.deepin.com"
+          REPO_BASE="https://ci.deepin.com/repo/obs/linglong:/CI:/release"
 
           case "${{ matrix.type }}" in
             "apt")
@@ -159,7 +159,7 @@ jobs:
           ll-cli --version || true
 
           # 验证仓库列表
-          ll-cli repo list
+          ll-cli repo show
 
           # 验证ll-builder
           ll-builder repo show
