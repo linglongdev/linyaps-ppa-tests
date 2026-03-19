@@ -123,8 +123,6 @@ jobs:
       options: --privileged
 
     steps:
-      - uses: actions/checkout@v4
-
       - name: 1. Setup Base Tools
         run: |
           case "${{ matrix.type }}" in
@@ -158,7 +156,8 @@ jobs:
 
       - name: 3. Verification
         run: |
-          echo "System Version"
-          cat /etc/os-release
-          echo "Linyaps Version"
-          ll-cli --version
+          echo "## ${{ matrix.repo_slug }}" >> $GITHUB_STEP_SUMMARY
+          echo "### System Version" >> $GITHUB_STEP_SUMMARY
+          cat /etc/os-release >> $GITHUB_STEP_SUMMARY
+          echo "### Linyaps Version" >> $GITHUB_STEP_SUMMARY
+          ll-cli --version >> $GITHUB_STEP_SUMMARY
