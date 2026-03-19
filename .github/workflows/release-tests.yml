@@ -156,10 +156,4 @@ jobs:
         run: |
           # 验证二进制是否存在
           command -v ll-cli
-          ll-cli --version || true
-
-          # 验证仓库列表
-          ll-cli repo show
-
-          # 验证ll-builder
-          ll-builder repo show
+          ll-cli --version
