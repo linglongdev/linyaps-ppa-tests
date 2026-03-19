@@ -144,7 +144,11 @@ jobs:
               apt-get install -y linglong-bin linglong-builder
               ;;
             "dnf")
-              dnf config-manager --add-repo "$REPO_BASE/${{ matrix.repo_slug }}/linglong%3ACI%3Arelease.repo"
+              if dnf --version | grep -q "dnf5"; then
+                dnf config-manager addrepo --from-repofile "$REPO_BASE/${{ matrix.repo_slug }}/linglong%3ACI%3Arelease.repo"
+              else
+                dnf config-manager --add-repo "$REPO_BASE/${{ matrix.repo_slug }}/linglong%3ACI%3Arelease.repo"
+              fi
               dnf install -y --nogpgcheck linglong-bin linglong-builder
               ;;
             "pacman")
@@ -154,6 +158,7 @@ jobs:
 
       - name: 3. Verification
         run: |
-          # 验证二进制是否存在
-          command -v ll-cli
+          echo "System Version"
+          cat /etc/os-release
+          echo "Linyaps Version"
           ll-cli --version
