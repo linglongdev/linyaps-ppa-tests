@@ -1,4 +1,4 @@
-name: Linyaps Matrix Compatibility Test
+name: Linyaps Release PPA Test
 
 on:
   push:
